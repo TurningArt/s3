@@ -1,10 +1,10 @@
+require "rexml/document"
+
 module S3
   module Parser
-    include REXML
-
     def rexml_document(xml)
       xml.force_encoding(Encoding::UTF_8) if xml.respond_to? :force_encoding
-      Document.new(xml)
+      REXML::Document.new(xml)
     end
 
     def parse_list_all_my_buckets_result(xml)
